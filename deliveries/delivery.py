@@ -39,6 +39,10 @@ class Delivery:
         }
         self._home_name = "Warszawa"
 
+    @property
+    def distance(self):
+        return self._distance
+
     def submit_order(self, destination_name):
         if self._destination:
             raise DestinationAlreadySet
