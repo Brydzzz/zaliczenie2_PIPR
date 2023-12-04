@@ -45,6 +45,12 @@ class Fraction:
         self._denominator = new_denominator
         self.normalize()
 
+    def common_denominator(self, other):
+        first_denominator = self.denominator
+        second_denominator = other.denominator
+        common_denominator = first_denominator * second_denominator
+        return common_denominator
+
     def __add__(self, other):
         first_numerator = self.numerator
         second_numerator = other.numerator
@@ -58,19 +64,36 @@ class Fraction:
         return Fraction(sum_numerator, sum_denominator)
 
     def __sub__(self, other):
-        pass
+        first_numerator = self.numerator
+        second_numerator = other.numerator
+        first_denominator = self.denominator
+        second_denominator = other.denominator
+        sub_numerator = (
+            first_numerator * second_denominator
+            - second_numerator * first_denominator
+        )
+        sub_denominator = first_denominator * second_denominator
+        return Fraction(sub_numerator, sub_denominator)
 
     def __mul__(self, other):
-        pass
+        first_numerator = self.numerator
+        second_numerator = other.numerator
+        mul_numerator = first_numerator * second_numerator
+        mul_denominator = self.common_denominator(other)
+        return Fraction(mul_numerator, mul_denominator)
 
     def __truediv__(self, other):
-        pass
+        if other.numerator == 0:
+            raise ZeroDivisionError
+        other_reciprocal = Fraction(other.denominator, other.numerator)
+        return self * other_reciprocal
 
     def add_integer(self, integer):
-        pass
+        after_add_numerator = self.numerator + integer * self.denominator
+        return Fraction(after_add_numerator, self.denominator)
 
-    def give_real_value():
-        pass
+    def give_real_value(self):
+        return self.numerator / self.denominator
 
     def __str__(self):
-        pass
+        return f"{self.numerator}/{self.denominator}"
