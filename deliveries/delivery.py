@@ -43,24 +43,42 @@ class Delivery:
     def distance(self):
         return self._distance
 
+    @property
+    def destination(self):
+        return self._destination
+
+    @property
+    def hours_since_rest(self):
+        return self._hours_since_rest
+
+    @property
+    def rest_hours(self):
+        return self._rest_hours
+
+    @property
+    def home_name(self):
+        return self._home_name
+
     def submit_order(self, destination_name):
-        if self._destination:
+        if self.destination:
             raise DestinationAlreadySet
-        if self._destination not in self._destination_dictionary:
+        if destination_name not in self._destination_dictionary:
             raise DestinationNotInOffer
         self._destination = destination_name
         self._distance = self._destination_dictionary.get(destination_name)
         self._hours_since_rest = 0
         self._rest_hours = None
 
-    def drive(self, drive_hours):
-        if self._rest_hours:
+    def drive(self, drive_hours: int):
+        truck_speed = 80
+        if self.rest_hours and self.rest_hours < 3:
             raise DriverIsResting
-        if self._hours_since_rest + drive_hours > 3:
+        self._rest_hours = None
+        if self.hours_since_rest + drive_hours > 3:
             raise RideTooLong
-        distance_left = self._distance - drive_hours * 80
+        distance_left = self.distance - drive_hours * truck_speed
         if distance_left == 0:
-            if self._destination != self._home_name:
+            if self.destination != self.home_name:
                 self.start_returning_home()
             else:
                 self.reset_after_return()
@@ -69,15 +87,17 @@ class Delivery:
             self._hours_since_rest = drive_hours
 
     def rest(self, rest_hours):
-        if self._hours_since_rest:
+        if self.hours_since_rest:
             self._hours_since_rest = 0
             self._rest_hours = rest_hours
         else:
             self._rest_hours += rest_hours
 
     def start_returning_home(self):
+        distance_to_home = self._destination_dictionary.get(self.destination)
         self._destination = self._home_name
         self._hours_since_rest = 0
+        self._distance = distance_to_home
 
     def reset_after_return(self):
         self._destination = None
@@ -86,13 +106,15 @@ class Delivery:
         self._rest_hours = None
 
     def __str__(self):
-        destination = self._destination
-        distance = self._distance
-        hours_since_rest = self._hours_since_rest
-        rest_hours = self._hours_since_rest
+        destination = self.destination if self.destination else "Not Set"
+        distance = self.distance
+        hours_since_rest = (
+            self.hours_since_rest if self.hours_since_rest else "Unknown"
+        )
+        rest_hours = self.rest_hours if self.rest_hours else "Unknown"
         return (
             f"Destination: {destination}\n"
-            f"Distance: {distance}\n"
-            f"Hours since rest: {hours_since_rest}\n"
-            f"Rest hours: {rest_hours}"
+            f"Distance: {distance} km\n"
+            f"Hours since rest: {hours_since_rest} h\n"
+            f"Rest hours: {rest_hours} h"
         )
