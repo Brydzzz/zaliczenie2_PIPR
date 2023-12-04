@@ -1,6 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "dice_roll_v3"
+        "zad2_gr_pon"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true
