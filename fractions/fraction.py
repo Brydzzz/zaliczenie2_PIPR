@@ -20,6 +20,9 @@ class Fraction:
         return self._denominator
 
     def find_gcd(self):
+        """
+        Finds greatest common divisor for numerator and denominator
+        """
         a = self.numerator
         b = self.denominator
         while b != 0:
@@ -29,6 +32,9 @@ class Fraction:
         return a
 
     def normalize(self):
+        """
+        Normalizes fraction
+        """
         gcd = self.find_gcd()
         if gcd != 1:
             normalized_numerator = self.numerator / gcd
@@ -39,6 +45,9 @@ class Fraction:
     def set_numerator_and_denominator(
         self, new_numerator: int, new_denominator: int
     ):
+        """
+        Sets numerator and denominator to given values
+        """
         if new_denominator == 0:
             raise ZeroDenominatorError
         self._numerator = new_numerator
@@ -46,6 +55,10 @@ class Fraction:
         self.normalize()
 
     def common_denominator(self, other):
+        """
+        Finds common denominator for two fractions by
+        multiplying their denominators
+        """
         first_denominator = self.denominator
         second_denominator = other.denominator
         common_denominator = first_denominator * second_denominator
@@ -89,10 +102,16 @@ class Fraction:
         return self * other_reciprocal
 
     def add_integer(self, integer):
+        """
+        Adds given integer to fraction
+        """
         after_add_numerator = self.numerator + integer * self.denominator
         return Fraction(after_add_numerator, self.denominator)
 
     def give_real_value(self):
+        """
+        Returns real value of fraction
+        """
         return self.numerator / self.denominator
 
     def __str__(self):
