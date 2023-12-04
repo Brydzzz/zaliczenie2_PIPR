@@ -1,6 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "fractions"
+        "1-box"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true
