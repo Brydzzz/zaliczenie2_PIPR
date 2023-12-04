@@ -68,3 +68,13 @@ def test_calculate_f1_score():
     boundingbox2 = BoundingBox((0, 1), (10, 11))
     iou = boundingbox1.calculate_f1_score(boundingbox2)
     assert iou == 0.90
+
+
+def test_box_description():
+    boundingbox = BoundingBox((0, 1), (10, 11))
+    assert str(boundingbox) == (
+        "lewy dolny wierzchołek x:0 y:1, "
+        "prawy dolny wierzchołek x:10 y:1, "
+        "lewy górny wierzchołek x:0 y:11, "
+        "prawy górny wierzchołek x:10 y:11"
+    )

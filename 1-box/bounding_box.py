@@ -103,3 +103,13 @@ class BoundingBox:
         first_area = self.calculate_area()
         second_area = other.calculate_area()
         return 2 * intersection / (first_area + second_area)
+
+    def __str__(self):
+        x1, y1 = self.left_down_corner
+        x2, y2 = self.right_up_corner
+        return (
+            f"lewy dolny wierzchołek x:{x1} y:{y1}, "
+            f"prawy dolny wierzchołek x:{x2} y:{y1}, "
+            f"lewy górny wierzchołek x:{x1} y:{y2}, "
+            f"prawy górny wierzchołek x:{x2} y:{y2}"
+        )
