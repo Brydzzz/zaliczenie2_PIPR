@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="" lang=""><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>problemy</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  </head><body><h1 id="problemy">Problemy</h1>
+<p>Pojedynczy problem nie sygnalizował z miejsca, że zadanie zostało 
+wykonane błędnie. Na utratę punktów wpływały tylko bardzo poważne błędy 
+lub nagromadzenie mniej poważnych błędów.</p>
+<h2 id="słabe-testy-brak-testów">1. Słabe testy / brak testów</h2>
+<p>Testy powinny przynajmniej sprawdzać działanie podstawowych 
+funkcjonalności wymaganych w treści zadania. Np. jeśli należałoby 
+zaimplementować klasę reprezentujacą wielomiany (jak w zadaniu domowym),
+ to jeden z testów powinien sprawdzać czy dodanie dwóch wielomianów 
+zapewnia poprawny wynik.</p>
+<p>Pisanie dobrych testów jest bardzo trudne i wymaga trochę&nbsp;doświadczenia, wiec nie były przeze mnie surowo oceniane.</p>
+<h2 id="nienazywanie-stałych---magiczne-stałe-zahardcodowane-wartości">2. Nienazywanie stałych - magiczne stałe / “zahardcodowane” wartości</h2>
+<p>Bardzo powszechny problem. Objawia się np. w taki sposób:</p>
+<pre><code>max_people = self.surface // 15 </code></pre>
+<p>Najprostsze rozwiązanie:</p>
+<pre><code>max_people_per_meter = 15
+max_people = self.surface // max_people_per_meter </code></pre>
+<h2 id="zarządzanie-danymi-pomocniczymi">3. Zarządzanie danymi pomocniczymi</h2>
+<p>W niektórych zadaniach podane były różne dane pomocnicze - np. cena za wynajęcie 1 metra powierzchni w różnych miastach:</p>
+<pre><code>{ 'Warszawa': 100, 'Kraków': 70, 'Poznań': 45, 'Białystok': 30 }</code></pre>
+<p>Należało napisać funkcję, która policzy koszt wynajmu biura. Idealne rozwiązanie to napisanie osobnej funkcji:</p>
+<pre><code>def rental_cost(office, prices):
+    return office.area * prices[office.city]</code></pre>
+<p>Skrajnie akceptowalnym podejściem byłoby zaszycie tego słownika w 
+metodzie klasy, lub korzystanie z niej jako globalnej stałej. W praktyce
+ sprawa nie jest tutaj prosta - zależy od zadania i od kontekstu. W 
+podanym przykładzie możnaby sobie odpowiedzieć na pytanie “Czy klasa 
+reprezentujaca biuro powinna wiedzieć cokolwiek o cenach najmu w różnych
+ miastach” - raczej nie. To mogłoby być problematyczne gdybyśmy chcieli 
+później aktualizować te wartości w trakcie działania programu. 
+Generalnie było to przeze mnie akceptowane, ale radzę uważać w 
+projektach!</p>
+<h2 id="skrajna-forma-problemu-3.---przepisywanie-danych-do-instrukcji-warunkowych">4. Skrajna forma problemu 3. - przepisywanie danych do instrukcji warunkowych</h2>
+<p>Ten błąd polega np. na napisaniu funkcji z podpunktu 3. w taki sposób:</p>
+<pre><code>def rental_cost(office):
+    if office.city == 'Warszawa':
+        return office.area * 100
+    elif office.city == 'Kraków':
+        return office.area * 70
+    # ...</code></pre>
+<p>Jakakolwiek przystosowanie takiego kodu do nowych danych jest później udręką.</p>
+<h2 id="zapominanie-o-zawołaniu-konstruktora-klasy-bazowej-podczas-dziedziczenia">5. Zapominanie o zawołaniu konstruktora klasy bazowej podczas dziedziczenia</h2>
+<p>W odróżnieniu od innych języków programowania, w Pythonie konstruktor
+ klasy bazowej nie jest wołany automatycznie. Należy to zrobić ręcznie, 
+np.:</p>
+<pre><code>class Matrix2x2(MatrixNxN):
+    def __init__(self, data):
+        super().__init__(self, 2, data)</code></pre>
+<p>Jeśli się o tym zapomnie to może wystąpić błąd przy dostępie do pól definiowanych w konstruktorze klasy bazowej!</p>
+<h2 id="modyfikowanie-in-place-klas-w-funkcjach-naśladujących-operatory">6. Modyfikowanie “in-place” klas w funkcjach naśladujących operatory</h2>
+<p>Operatorami w zadaniach zazwyczaj było dodawanie, odejmowanie i 
+mnożenie. Np. dodawanie dwóch - macierzy, - wielomianów, - liczb 
+zespolonych, - punktów.</p>
+<p>Jeśli dodajemy 2 punkty (0, 1) i (3, 5) to spodziewamy się, że otrzymamy <strong>nowy</strong> punkt (3, 6). Z praktycznego punktu widzenia niezwykle istotne jest, aby punkty początkowe nie zostały zmienione.</p>
+<p>Właściwym rozwiązaniem jest tutaj np.:</p>
+<pre><code>def add(self, other):
+    return Point(self.x + other.x, self.y + other.y)</code></pre>
+<p>A <strong>niestosownym</strong> rozwiązaniem:</p>
+<pre><code>def add(self, other):
+    self.x += other.x
+    self.y += other.y</code></pre>
+<h2 id="korzystanie-z-io-w-funkcjach-które-nie-są-do-tego-przeznaczone">7. Korzystanie z I/O w funkcjach, które nie są do tego przeznaczone</h2>
+<p>Chodzi tu o nadużywanie funkcji <code>input</code> i <code>print</code>.
+ Kiedy piszemy klasę to nie należy przyjmować żadnego sposobu interakcji
+ z użytkownikiem końcowym - klasa jest dla programisty. Jeśli ktoś użyje
+ później klasy w programie okientowym to w jaki sposób poda wartości, 
+które są pobierane w konstruktorze funkcją <code>input</code>? Analogicznie nie będziemy w stanie odczytać wartości, które zostały wypisane funkcją <code>print</code>.</p>
+<h2 id="if-variable-floatvariable-oraz-analogiczne-sprawdzenia-z-innymi-typami">8. <code>if variable == float(variable)</code> oraz analogiczne sprawdzenia z innymi typami</h2>
+<p>Taki błąd pojawił&nbsp;się kilka razy. Wygląda to tak jakby autor chciał sprawdzić czy zmienna <code>variable</code> jest typu <code>float</code>.
+ Jest to poważny błąd! W przypadku podania niewłaściwej wartości 
+wyrażenie to rzuci wyjątek, który (o ile nie jest poprawnie obsłużony) 
+spowoduje zamknięcie programu.</p>
+<p>Lepsza forma to:</p>
+<pre><code>if type(variable) == float</code></pre>
+<p>Przy czym warto zauważyć, że wówczas warunek nie byłby prawdziwy dla 
+liczb całkowitych, a zatem konieczne byłoby zazwyczaj wprowadzenie 
+modyfikacji:</p>
+<pre><code>if type(variable) in [float, int]</code></pre>
+<p>W praktyce robi się to jeszcze inaczej z wykorzystaniem funkcji <code>isinstance</code>, ale to wykracza poza laboratorium.</p>
+<p>Zazwyczaj tego typu testy można było sobie po prostu odpuścić. Na laboratoriach, w których pokazywana była funkcja <code>input</code>
+ takie testy były bardzo ważne, ponieważ tam dane wprowadzał 
+“użytkownik”. Klasa jest używana przez programistę i możemy zakładać, że
+ będzie przestrzegał jakichś kontraktów.</p>
+<h2 id="niepoprawne-używanie-funkcji-range">9. Niepoprawne używanie funkcji <code>range</code></h2>
+<p>W Pythonie (i wielu innych językach programowania) występuje 
+konwencja stosowania przedziałów lewostronnie domkniętych. W matematyce 
+zapisuje się to jako <code>[x_0, x_1)</code>, albo <code>&lt;x_0, x_1)</code>.
+ Pierwsza liczba należy do podanego przedziału, ale druga już nie! Kiedy
+ operujemy na liczbach całkowich, oznacza to, że koniec przedziału 
+pokazuje tak naprawdę na liczbę znajdującą się za interesującym nas 
+podciągiem, np.:</p>
+<pre><code>&gt;&gt;&gt; list(range(2, 5))
+[2, 3, 4]</code></pre>
+<p>Czyli jeśli chcemy przejść indeksem przez całą listę to napiszemy:</p>
+<pre><code>for i in range(0, len(lista)):</code></pre>
+<p>(0 może, a nawet powinno być pominięte)</p>
+<pre><code>for i in range(len(lista))</code></pre>
+<p><strong>Nie należy</strong>, jak mogłoby się niektórym wydawać, 
+odejmować od długości listy 1. Jeśli długość listy to 5, to element o 
+indeksie 5 znajduje się poza listą, <strong>ALE</strong> funkcja <code>range</code> nie wygeneruje tego indeksu przez to, ze przyjmowany przez nią przedział jest prawostronnie otwarty - <code>&lt;0, 5)</code> -&gt; <code>[0, 1, 2, 3, 4]</code>.</p>
+<h3 id="uwaga">UWAGA</h3>
+<p>W przypadku iterowania przez listę najlepiej jest w ogóle nie używać indeksu:</p>
+<pre><code>for elem in lista:</code></pre>
+<p>lub jeśli jest on z jakiegoś powodu potrzebny, użyć funkcji <code>enumerate</code>:</p>
+<pre><code>for i, elem in enumerate(lista):</code></pre>
+<h2 id="niestosowne-nazwy">10. Niestosowne nazwy</h2>
+<p>Z reguły wszyscy starali się nazywać zmienne i klasy dość sensownie, chociaż zdarzyło się <code>dictionary</code> albo <code>lista</code>
+ w miejscu, w którym pasowałaby jakaś bardziej opisowa nazwa. Zdarzyło 
+się też, że nazwy nie do końca odpowiadały obiektom, które miały 
+reprezentować. Np. zmienna przechowujaca biura firmy nazywała się <code>cities</code> (co chyba wynikało z założenia, że każde biuro firmy w innym mieście).</p>
+<p><strong>Największym zagrożeniem przy używaniu nieodpowiednich nazw 
+jest to, że się przez nie pomylimy i będziemy mieli w rozwiązaniu 
+znacznie poważniejszy błąd!</strong></p>
+<h2 id="nieużywane-zmienne">11. Nieużywane zmienne</h2>
+<p>Nieużywane zmienne i parametry funkcji powodują, że kod może wyglądać
+ na bardziej skomplikowany niż jest w rzeczywistości, wiec należy ich 
+unikać. Łatwo jest je wyłapać dlatego, że VSCode koloruje je na szaro 
+(podobnie łatwo jest wyłapać inne rzeczy, które koloruje np. na 
+czerwono).</p>
+<p>Jeśli z jakiegoś powodu potrzebujemy nieużywanej zmiennej, to możemy użyć nazwy <code>_</code>. Jest to sygnał dla czytelnika i lintera, że zmienna nie jest używana i można ją zignorować, np.:</p>
+<pre><code>for _ in range(5):
+    print("To będzie 5 razy")</code></pre>
+<h2 id="niespójna-konwencja-nazewnicza">12. Niespójna konwencja nazewnicza</h2>
+<p>W różnych językach są różne konwencje formatowania kodu. W Pythonie 
+jest powszechnie narzucony standard PEP-8 
+(https://www.python.org/dev/peps/pep-0008/). Jest w nim napisane m.in., 
+że zmienne i funkcje powinny być nazywane <code>snake_casem</code>, a klasy <code>CamelCasem</code>.</p>
+<p>To nie jest wymóg absolutny niektóre zespoły (bardzo sporadycznie) 
+decydują się na inną konwencję. W takim wypadku należy po prostu 
+zachować spójność. Nie może być tak, że jedna funkcja nazywa się <code>compute_something</code>, a druga <code>printSomething</code> i w dodatku są metodami tej samej klasy.</p>
+<p>Tu przy okazji można wspomnieć o ograniczeniu maksymalnej długości 
+linii. Po pierwsze łatwiej się czyta (dlatego gazety mają kilka kolumn),
+ a po drugie w praktyce często porównuje się czyjeś zmiany w kodzie na 
+tzw. "side-by-side diffie` (można coś takiego otworzyć w VSCode z 
+zakładki Source Control).</p>
+
+
+</body></html>
