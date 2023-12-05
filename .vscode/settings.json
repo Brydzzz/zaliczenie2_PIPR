@@ -1,6 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "zad2_gr_pon"
+        "zad1_gr_pon"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true
